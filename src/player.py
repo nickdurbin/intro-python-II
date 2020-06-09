@@ -1,36 +1,32 @@
 # Write a class to hold player information, e.g. what room they are in
 # currently.
+from room import Room
 
 class Player:
-  def __init__(self, name, items=[], location):
+  def __init__(self, name, current_room):
     self.name = name
-    self.items = items
-    self.location = location
+    self.current_room = current_room
 
-    def player_actions(self, input):
-      if input == "w":
-        direction = "north"
-      if input == "a":
-        direction = "west"
-      if input == "s":
-        direction == "south"
-      if input == "d":
-        direction == "east"
+  def player_actions(self, input):
+    if input == "w":
+      direction = "n"
+    elif input == "a":
+      direction = "w"
+    elif input == "s":
+      direction == "s"
+    elif input == "d":
+      direction == "e"
 
-      print(f"You have chosen to go {player_actions(direction)}.")
+    print(f"You have chosen to go {direction}_to.")
 
-    def __str__(self):
-      return None
+  def __str__(self):
+    return None
 
-    def __repr__(self):
-      return f"self.name = {self.name}; self.items = {self.items}; self.items = {self.items}"
+  def __repr__(self):
+    return f"self.name = {self.name}; self.current_room = {self.current_room}"
 
 
-class Sub_Class(Player):
-  def __init__(self, name, description, abilities, level):
-    super().__init__(name, items, location)
-      self.name = name
-      self.description = description
-      self.abilities = abilities
-      self.level = level
+# class Sub_Class(Player):
+#   def __init__(self, name, description, abilities, level):
+#     super().__init__(name, items, location)
 

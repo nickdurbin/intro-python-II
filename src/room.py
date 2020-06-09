@@ -1,22 +1,26 @@
 # Implement a class to hold room information. This should have name and
 # description attributes.
-import player from Player
 
 class Room:
-  def __init__(self, name, items, description):
+  def __init__(self, name, description):
     self.name = name
-    self.items = items
-    self.walls = walls
-    self.doors = doors
+    self.description = description
+    self.n_to = ''
+    self.w_to = ''
+    self.s_to = ''
+    self.e_to = ''
+    self.items = []
 
-  def item_aquired(self, item):
-    self.items.append(player.items)
+  def item_aquired(self, items):
+    for item in items:
+      self.items.append(item)
 
-  def item_dropped(self, item):
-    self.items.remove(player.items)
+  def item_dropped(self, items):
+    for item in items:
+      self.items.remove(item)
 
   def __str__(self):
-    greeting = f"Welcome to {self.name}, {player.name}!"
+    greeting = f"Welcome to {self.name}. {self.description}!"
     return greeting
 
   
