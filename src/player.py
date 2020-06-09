@@ -23,7 +23,11 @@ class Player:
     return None
 
   def __repr__(self):
-    return f"self.name = {self.name}; self.current_room = {self.current_room}"
+    return f"Player: (self.name = {repr(self.name)}, self.current_room = {repr(self.current_room)})"
+
+player1 = Player("Nick", "Testing")
+
+print(repr(player1))
 
 
 # class Sub_Class(Player):
