@@ -52,3 +52,14 @@ nick = Player("Nick", )
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+while True:
+
+  choice = input("Please begin your adventure by choosing a direction. Else type q to quit.")
+
+  try: 
+    if (choice == 'q'):
+      break
+    choice = int(choice) - 1
+    if choice 
+  
