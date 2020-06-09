@@ -17,7 +17,7 @@ class Player:
       if input == "d":
         direction == "east"
 
-      print(f"You have chosen to go {input.direction}.")
+      print(f"You have chosen to go {player_actions(direction)}.")
 
     def __str__(self):
       return None

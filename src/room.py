@@ -17,7 +17,6 @@ class Room:
 
   def __str__(self):
     greeting = f"Welcome to {self.name}, {player.name}!"
-
     return greeting
 
   
