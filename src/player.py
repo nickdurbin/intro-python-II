@@ -6,31 +6,14 @@ class Player:
   def __init__(self, name, current_room):
     self.name = name
     self.current_room = current_room
-
-  def player_actions(self, input):
-    if input == "w":
-      direction = "n"
-    elif input == "a":
-      direction = "w"
-    elif input == "s":
-      direction == "s"
-    elif input == "d":
-      direction == "e"
-
-    print(f"You have chosen to go {direction}_to.")
+    self.inventory = []
 
   def __str__(self):
-    return None
+    return f"Name: {self.name}\nCurrent Location: {self.current_room}"
 
   def __repr__(self):
     return f"Player: (self.name = {repr(self.name)}, self.current_room = {repr(self.current_room)})"
 
-player1 = Player("Nick", "Testing")
-
-print(repr(player1))
-
-
 # class Sub_Class(Player):
 #   def __init__(self, name, description, abilities, level):
-#     super().__init__(name, items, location)
-
+#     super().__init__(name, current_name)
