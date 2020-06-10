@@ -1,7 +1,7 @@
 # A class for the items in the rooms.
 
 class Item:
-  def __init__(self, name, description, level):
+  def __init__(self, name: str, description: str, level: int):
     self.name = name
     self.description = description
     self.level = int(level)
