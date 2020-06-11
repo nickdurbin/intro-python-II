@@ -28,9 +28,7 @@ def run_game():
       quit_game(nick)
         
     # If the user enters a cardinal direction, attempt to move to the room there.
-    elif user_input == "w" or user_input == "a" or user_input == "s" or user_input == "d":
-      player_actions(user_input, nick)
-    elif user_input == "i":
+    if user_input in {'w', 'a','s', 'd', 'e', 'i', 'g', 'v', 'q'}:
       player_actions(user_input, nick)
     else:
       # Print an error message if the movement isn't allowed.

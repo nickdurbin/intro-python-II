@@ -4,19 +4,12 @@ def player_actions(cmd, player):
   try:
     if cmd == "w" or cmd == "a" or cmd == "s" or cmd == "d":
       action = move_to(cmd, player)
-    if cmd == "i":
-      action == check_inventory(player.inventory)
-    # elif cmd == "e":
-    #   action == use_item()
-    # elif cmd == "h":
-    #   action == use_heal()
-    # elif cmd == "left_shift":
-    #   action == use_sprint()
-    # elif cmd == "spacebar":
-    #   action == use_jump()
-  
+    elif cmd == "i" or cmd == "inventory":
+      action = check_inventory(player.inventory)
+
   except:
-    print("Please choose a valid input command.")
+    print("There was an error with your request. Please check your input value.")
+
 
 def move_to(cardinal_dir, player):
   room = None
@@ -37,24 +30,25 @@ def move_to(cardinal_dir, player):
 
   return room
 
-  
 def check_inventory(list):
-  if list.len <= 0:
+  if len(list) <= 0:
     print("\nYou have nothing in your inventory")
   else:
     for index, item in list:
       print(f"\nItem {index}: {item.name}")
+  
+  return list
 
 line = "==============================================="
 
 def quit_game(player):
-    print(f"\n{line}\n{line}\n\nUmmm, {player.name}.\n\nAre you sure you want to quit?\n\nYou will lose your progress if yes.\n\nType [Y/n]")
+  print(f"\n{line}\n{line}\n\nUmmm, {player.name}.\n\nAre you sure you want to quit?\n\nYou will lose your progress if yes.\n\nType [Y/n]")
 
-    quit_input = input().lower()
+  quit_input = input().lower()
 
-    if quit_input == "" or quit_input == "y" or quit_input == "yes":
-      print(f"\nSad to see you go, {player.name}.\nSee you again soon! Muwhahaha!")
-      exit()
-    
-    else:
-      print(f"\nGood choice, {player.name}. Now find the treasure!")
+  if quit_input == "" or quit_input == "y" or quit_input == "yes":
+    print(f"\nSad to see you go, {player.name}.\nSee you again soon! Muwhahaha!")
+    exit()
+  
+  else:
+    print(f"\nGood choice, {player.name}. Now find the treasure!")
