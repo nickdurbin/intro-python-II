@@ -1,4 +1,7 @@
-def player_actions(cmd, player):
+# Main actions function for inputs
+line = "==============================================="
+
+def player_actions(cmd, player, room):
   action = None
 
   try:
@@ -6,11 +9,18 @@ def player_actions(cmd, player):
       action = move_to(cmd, player)
     elif cmd == "i" or cmd == "inventory":
       action = check_inventory(player.inventory)
-
+    elif cmd == "g":
+      action = item_required(player.inventory)
+    elif cmd == "f":
+      action = item_dropped(player.inventory)
+    elif cmd == "v":
+      action = room_items(player.current_room)
+      
   except:
     print("There was an error with your request. Please check your input value.")
 
-
+# Function to move the player through the rooms
+# Or returns None if the direction is a deadend
 def move_to(cardinal_dir, player):
   room = None
 
@@ -30,17 +40,36 @@ def move_to(cardinal_dir, player):
 
   return room
 
+# Function to check the inventory
+# Possibly the room and the player
 def check_inventory(list):
   if len(list) <= 0:
     print("\nYou have nothing in your inventory")
   else:
-    for index, item in list:
-      print(f"\nItem {index}: {item.name}")
-  
-  return list
+    for index, item in enumerate(list):
+      print(f"\nItem {index+1}: {item}")
 
-line = "==============================================="
+def item_aquired(items):
+  items.append(item)
+  print(f"You have aquired {item}!")
 
+def item_dropped(items):
+  items.remove(item)
+  print(f"You have dropped {item}!")
+
+def room_items(items):
+  print(f'{line}\n---- This Room Contains The Following Items ----\n{line}')
+  for item in items:
+    print(item)
+
+def add_room_item(items):
+  items.append(item)
+
+def remove_room_item(items):
+  items.remove(item)
+
+# Function that allows the player to exit
+# Or go back to the game
 def quit_game(player):
   print(f"\n{line}\n{line}\n\nUmmm, {player.name}.\n\nAre you sure you want to quit?\n\nYou will lose your progress if yes.\n\nType [Y/n]")
 

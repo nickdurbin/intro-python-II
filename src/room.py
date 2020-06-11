@@ -12,21 +12,11 @@ class Room:
     self.e_to = None
     self.items = [] # list to hold items per Readme.
 
-  def item_aquired(self, items):
-    for item in items:
-      self.items.append(item)
-
-  def item_dropped(self, items):
-    for item in items:
-      self.items.remove(item)
-
-  def room_items(self):
-    print(f'{line}\n---- This Room Contains The Following Items ----\n{line}')
-    for item in self.items:
-        print(item)
-
   def __str__(self):
-    return f"{line}\n{line}\n\nWelcome to {self.name}. {self.description}!"
+    room_items = None
+    for items in self.items:
+      room_items += str(items)
+    return f"{line}\n{line}\n\nWelcome to {self.name}. {self.description}!\nItems: {room_items}"
 
   def __repr__(self):
     return f"self.name = {self.name} - self.description = {self.description} - self.items = {self.description}"

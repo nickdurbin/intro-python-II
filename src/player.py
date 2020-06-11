@@ -6,10 +6,10 @@ class Player:
   def __init__(self, name: str, current_room: str, inventory: list):
     self.name = name
     self.current_room = current_room
-    self.inventory = [] # list of items in the inventory per Readme
+    self.inventory = inventory # list of items in the inventory per Readme
 
   def __str__(self):
-    return f"Name: {self.name}\nCurrent Location: {self.current_room}"
+    return f"Name: {self.name}\nCurrent Location: {self.current_room}\nInventory: {self.inventory}"
 
   def __repr__(self):
     return f"Player: (self.name = {repr(self.name)}, self.current_room = {repr(self.current_room)})"
