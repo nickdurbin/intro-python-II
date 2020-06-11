@@ -23,23 +23,18 @@ def move_to(cardinal_dir, player):
 
   if cardinal_dir == "w":
     room = player.current_room.n_to
-    print(room)
   elif cardinal_dir == "a":
     room = player.current_room.w_to
-    print(room)
   elif cardinal_dir == "s":
     room = player.current_room.s_to
-    print(room)
   elif cardinal_dir == "d":
     room = player.current_room.e_to
-    print(room)
 
   if room != None or room != "":
-    player.current_room == room
+    player.current_room = room
   else:
     print("\nYou have run into a deadend!\nPlease choose another direction.")
 
-  print(room)
   return room
 
   
@@ -50,8 +45,10 @@ def check_inventory(list):
     for index, item in list:
       print(f"\nItem {index}: {item.name}")
 
+line = "==============================================="
+
 def quit_game(player):
-    print(f"\n===============================================\n===============================================\n\nUmmm, {player.name}.\n\nAre you sure you want to quit?\n\nYou will lose your progress if yes.\n\nType [Y/n]")
+    print(f"\n{line}\n{line}\n\nUmmm, {player.name}.\n\nAre you sure you want to quit?\n\nYou will lose your progress if yes.\n\nType [Y/n]")
 
     quit_input = input().lower()
 
