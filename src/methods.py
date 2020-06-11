@@ -22,27 +22,29 @@ def move_to(cardinal_dir, player):
   room = None
 
   if cardinal_dir == "w":
-    print(cardinal_dir)
     room = player.current_room.n_to
     print(room)
   elif cardinal_dir == "a":
     room = player.current_room.w_to
+    print(room)
   elif cardinal_dir == "s":
     room = player.current_room.s_to
+    print(room)
   elif cardinal_dir == "d":
     room = player.current_room.e_to
+    print(room)
 
   if room != None or room != "":
-    print(room)
     player.current_room == room
   else:
     print("\nYou have run into a deadend!\nPlease choose another direction.")
 
+  print(room)
   return room
 
   
 def check_inventory(list):
-  if list.len == 0:
+  if list.len <= 0:
     print("\nYou have nothing in your inventory")
   else:
     for index, item in list:

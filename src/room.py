@@ -20,6 +20,13 @@ class Room:
     for item in items:
       self.items.remove(item)
 
+  def room_items(self):
+    print(f'{line}\n---- This Room Contains The Following Items ----\n{line}')
+    for item in self.items:
+        print(item)
+
   def __str__(self):
-    greeting = f"{line}\n{line}\n\nWelcome to {self.name}. {self.description}!"
-    return greeting
+    return f"{line}\n{line}\n\nWelcome to {self.name}. {self.description}!"
+
+  def __repr__(self):
+    return f"self.name = {self.name} - self.description = {self.description} - self.items = {self.description}"
