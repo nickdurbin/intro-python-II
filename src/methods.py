@@ -47,7 +47,7 @@ def check_inventory(list):
     print("\nYou have nothing in your inventory")
   else:
     for index, item in enumerate(list):
-      print(f"\nItem {index+1}: {item}")
+      print(f"Item {index+1}: {item}")
 
 def item_aquired(items):
   items.append(item)
