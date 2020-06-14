@@ -1,7 +1,7 @@
 # Main actions function for inputs
-line = "==============================================="
+line = "="*30
 
-def player_actions(cmd, player, room):
+def player_actions(cmd, player):
   action = None
 
   try:
@@ -9,12 +9,6 @@ def player_actions(cmd, player, room):
       action = move_to(cmd, player)
     elif cmd == "i" or cmd == "inventory":
       action = check_inventory(player.inventory)
-    elif cmd == "g":
-      action = item_required(player.inventory)
-    elif cmd == "f":
-      action = item_dropped(player.inventory)
-    elif cmd == "v":
-      action = room_items(player.current_room)
       
   except:
     print("There was an error with your request. Please check your input value.")
@@ -24,18 +18,20 @@ def player_actions(cmd, player, room):
 def move_to(cardinal_dir, player):
   room = None
 
-  if cardinal_dir == "w":
-    room = player.current_room.n_to
-  elif cardinal_dir == "a":
-    room = player.current_room.w_to
-  elif cardinal_dir == "s":
-    room = player.current_room.s_to
-  elif cardinal_dir == "d":
-    room = player.current_room.e_to
+  try:
+    if room != None or room != "":
+      player.current_room = room
+    else: 
+      if cardinal_dir == "w":
+        room = player.current_room.n_to
+      elif cardinal_dir == "a":
+        room = player.current_room.w_to
+      elif cardinal_dir == "s":
+        room = player.current_room.s_to
+      elif cardinal_dir == "d":
+        room = player.current_room.e_to
 
-  if room != None or room != "":
-    player.current_room = room
-  else:
+  except:
     print("\nYou have run into a deadend!\nPlease choose another direction.")
 
   return room
@@ -48,25 +44,6 @@ def check_inventory(list):
   else:
     for index, item in enumerate(list):
       print(f"Item {index+1}: {item}")
-
-def item_aquired(items):
-  items.append(item)
-  print(f"You have aquired {item}!")
-
-def item_dropped(items):
-  items.remove(item)
-  print(f"You have dropped {item}!")
-
-def room_items(items):
-  print(f'{line}\n---- This Room Contains The Following Items ----\n{line}')
-  for item in items:
-    print(item)
-
-def add_room_item(items):
-  items.append(item)
-
-def remove_room_item(items):
-  items.remove(item)
 
 # Function that allows the player to exit
 # Or go back to the game

@@ -4,7 +4,7 @@ from player import Player
 from items import Item
 from methods import player_actions, check_inventory, quit_game
 
-line = "==============================================="
+line = "="*30
 
 # Make a new player object that is currently in the 'outside' room.
 player_name = input(f'\nHello!\n\n{line}\n{line}\n\nYou have entered the Imaginarium Cave of Doctor Parnassus\n\nWhat is your name? ')
@@ -29,8 +29,7 @@ def run_game():
         
     # If the user enters a cardinal direction, attempt to move to the room there.
     if user_input in {'w', 'a','s', 'd', 'e', 'i', 'g', 'f', 'v'}:
-      print(current_room.items, "line 33")
-      player_actions(user_input, nick, current_room)
+      player_actions(user_input, nick)
     else:
       # Print an error message if the movement isn't allowed.
       print("\nIncorrect input.\nPlease enter a valid cardinal direct w, a ,s ,d or q to quit.")
